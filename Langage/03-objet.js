@@ -26,7 +26,11 @@ console.log(Math.sum(1, 2)); // 3
 for (var prop in contact) {
     console.log(prop); // clé
     console.log(typeof prop); // 'string'
-    console.log(contact[prop]); // valeur
+
+    if (typeof contact[prop] !== 'function') {
+        console.log(contact[prop]); // valeur
+    }
+    
 }
 
 // Variante pour accéder au contenu d'un objet []
@@ -45,6 +49,9 @@ var romain = new Contact('Romain');
 console.log(romain.prenom); // Romain
 console.log(typeof romain); // object
 console.log(typeof Contact); // function
+console.log(romain instanceof Contact); // true
+console.log(romain instanceof Object); // true (toujours vrai pour un objet)
+console.log(romain instanceof String); // false
 
 var eric = new Contact('Eric');
 console.log(eric.prenom); // Eric
@@ -114,9 +121,12 @@ var result = nbs.reduce(function(acc, val) {
 console.log(result);
 
 var sum = function () {
+    return Array.prototype.reduce.call(arguments, (acc, val) => acc + val, 0);
+    /*
     return Array.prototype.reduce.call(arguments, function(acc, val) {
         return acc + val;
     }, 0);
+    */
 };
 
 console.log(sum(1, 2, 3, 4)); // 10

@@ -1,0 +1,13 @@
+{
+  "name": "horloge-es6",
+  "version": "1.0.0",
+  "dependencies": {
+    "babel-polyfill": "^6.20.0",
+    "http-server": "^0.9.0",
+    "systemjs": "^0.19.41",
+    "systemjs-plugin-babel": "0.0.18"
+  },
+  "scripts": {
+    "start": "node_modules/.bin/hs"
+  }
+}
