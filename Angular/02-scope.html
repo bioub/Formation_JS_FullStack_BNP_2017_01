@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hello AngularJS</title>
+    </head>
+    <body ng-app>
+        <!--
+            Concepts :
+            4 - comme en JS, les variables définies au niveau d'un template (vue)
+            a une portée limité par une balise, meme chose en terme de portée
+            qu'une fonction, on accède aux scopes parents
+            function body() {
+                var prenoms = ['Jean', 'Eric'];
+                function p1() {
+                    var prenom = 'Jean';
+                }
+                function p2() {
+                    var prenom = 'Eric';
+                }
+            }
+            5 - pour débugger un scope, sélectionner une balise avec les outils de
+            dev du navigateur, puis dans la console
+            angular.element($0).scope()
+        -->
+        <p>
+            Prénoms : <input ng-model="prenoms" ng-list>
+        </p>
+        <p ng-repeat="prenom in prenoms track by $index">
+            Bonjour {{prenom}} {{$index}}
+            <button ng-if="$last">-</button>
+        </p>
+        <script src="node_modules/angular/angular.js"></script>
+    </body>
+</html>

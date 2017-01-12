@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="app.module" ng-strict-di>
+    <head>
+        <meta charset="utf-8">
+        <title>Hello AngularJS</title>
+    </head>
+    <body ng-controller="PrenomCtrl">
+        <!-- Concepts :-->
+        <p>
+            Prénom : <input ng-model="prenom">
+            <button ng-click="ajouter()">+</button>
+        </p>
+        <p ng-repeat="prenom in prenoms track by $index">
+            Bonjour {{prenom}} <button ng-click="supprimer($index)">-</button>
+        </p>
+        <script src="node_modules/angular/angular.js"></script>
+        <script>
+            (function() {
+                'use strict';
+                // Exercice : au clic du bouton moins, supprimer le contact
+
+                var module = angular.module('app.module', []);
+                module.controller('PrenomCtrl', ['$scope', '$http', function($scope, $http) {
+                    $scope.prenoms = [];
+
+                    $http.get('https://randomuser.me/api', {
+                        params: {
+                            results: 3,
+                            nat: 'fr'
+                        }
+                    }).then(function(res) {
+                        $scope.prenoms = res.data.results.map(function(user) {
+                            return user.name.first;
+                        })
+                    });
+
+
+                    $scope.ajouter = function() {
+                        $scope.prenoms.push($scope.prenom);
+                    };
+
+                    $scope.supprimer = function(i) {
+                        $scope.prenoms.splice(i, 1);
+                    };
+                }]);
+            }());
+        </script>
+    </body>
+</html>

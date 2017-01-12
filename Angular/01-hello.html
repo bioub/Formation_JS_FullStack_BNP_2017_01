@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hello AngularJS</title>
+    </head>
+    <body ng-app>
+        <!--
+            Concepts :
+            1 - directive, un attribut ou un nom de balise
+            qui permet l'execution d'une fonction JS associée
+            2 - compilation, parser le HTML et transformer les directives
+            3 - data binding, 
+            ng-model, synchronise la vue avec le model (dans les 2 sens)
+            ng-bind, si le model évolue la vue évolue (dans 1 sens)
+        -->
+        <p>
+            Prénom : <input ng-model="prenom">
+        </p>
+        <p ng-if="prenom">
+            Bonjour <span ng-bind="prenom"></span>
+        </p>
+        <script src="node_modules/angular/angular.js"></script>
+    </body>
+</html>

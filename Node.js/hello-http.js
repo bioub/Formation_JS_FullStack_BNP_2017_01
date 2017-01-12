@@ -9,7 +9,7 @@ const server = http.createServer((req, res) => {
             res.end('Home');
             break;
         case '/hello':
-            res.end('Home');
+            res.end('Hello');
             break;
         default:
             res.statusCode = 404;

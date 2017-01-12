@@ -1,28 +1,41 @@
-const contacts = [{
-    prenom: 'Romain',
-    nom: 'Bohdanowicz',
-    id: 12
-}, {
-    prenom: 'Jean',
-    nom: 'Dupont',
-    id: 245
-}]
+const Contact = require('../models/contact');
 
-/**
- * Le controleur contact list
- */
 exports.list = (req, res, next) => {
-    res.json(contacts);
+    Contact.find('prenom nom', (err, contacts) => {
+        res.json(contacts);
+    });
+};
+
+// POST /api/contacts HTTP/1.1
+// Host: localhost:8080
+// Content-type: application/json
+// {
+//    "prenom": "Mark",
+//    "nom": "Zuckerberg"   
+// }
+
+exports.create = (req, res, next) => {
+    const contact = new Contact(req.body);
+    contact.save(function (err, contact) {
+        res.statusCode = 201;
+        res.json(contact);
+    });
 };
 
 exports.show = (req, res, next) => {
-    const id = Number(req.params.id);
+    Contact.findById(req.params.id, (err, contact) => {
+        if (!contact) {
+            return next();
+        }
+        res.json(contact);
+    });
+};
 
-    const contact = contacts.find(c => c.id === id);
-
-    if (!contact) {
-        return next();
-    }
-
-    res.json(contact);
+exports.remove = (req, res, next) => {
+    Contact.findByIdAndRemove(req.params.id, (err, contact) => {
+        if (!contact) {
+            return next();
+        }
+        res.json(contact);
+    });
 };
