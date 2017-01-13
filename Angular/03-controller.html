@@ -5,7 +5,18 @@
         <title>Hello AngularJS</title>
     </head>
     <body ng-controller="PrenomCtrl">
-        <!-- Concepts :-->
+        <!--
+            Concepts :
+            1 - services comme $http, des fonctions ou des objets qui sont créés aux préalables
+            et qui nous rende un service (requeter le serveur pour $http)
+            2 - controller, une fonction constructeur qui fait le lien entre le model et la vue
+            3 - injection de dépendance: la fonction controller peut demander un service en paramètres
+            d'entrée, il lui sera injecté automatiquement
+            4 - annotation, pour pouvoir minifier le JS, il faut annoter les controlleur c'est à dire
+            reproduire le nom des services injectés sous la forme de chaine de caractères (dans un tableau)
+            5 - module, 1 script = 1 module, et ng-app permet de spécifier le module qui est le point
+            d'entrée dans l'app
+        -->
         <p>
             Prénom : <input ng-model="prenom">
             <button ng-click="ajouter()">+</button>
@@ -15,10 +26,12 @@
         </p>
         <script src="node_modules/angular/angular.js"></script>
         <script>
+            // Module IIFE (but : avoir une portée de script)
             (function() {
                 'use strict';
                 // Exercice : au clic du bouton moins, supprimer le contact
 
+                // En création de module les [] sont obligatoires (sinon on est en lecture)
                 var module = angular.module('app.module', []);
                 module.controller('PrenomCtrl', ['$scope', '$http', function($scope, $http) {
                     $scope.prenoms = [];
@@ -32,6 +45,8 @@
                         $scope.prenoms = res.data.results.map(function(user) {
                             return user.name.first;
                         })
+                    }).catch(function(res) {
+                        console.log(res);
                     });
 
 
