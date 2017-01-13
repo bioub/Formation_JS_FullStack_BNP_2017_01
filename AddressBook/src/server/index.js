@@ -37,6 +37,11 @@ app.use('/api', (err, req, res, next) => {
     });
 });
 
+// Pour que l'appli angular reçoivent l'index quoiqu'il arrive
+app.use((req, res, next) => {
+    res.sendFile(path.resolve(__dirname + '/../client/index.html'));
+});
+
 // Démarrage du serveur
 app.listen(8080, () => {
     console.log('Server started');

@@ -11,6 +11,11 @@
       "from": "angular@>=1.6.1 <2.0.0",
       "resolved": "https://registry.npmjs.org/angular/-/angular-1.6.1.tgz"
     },
+    "angular-ui-router": {
+      "version": "0.3.2",
+      "from": "angular-ui-router@latest",
+      "resolved": "https://registry.npmjs.org/angular-ui-router/-/angular-ui-router-0.3.2.tgz"
+    },
     "array-flatten": {
       "version": "1.1.1",
       "from": "array-flatten@1.1.1",
@@ -20,6 +25,16 @@
       "version": "2.1.4",
       "from": "async@2.1.4",
       "resolved": "https://registry.npmjs.org/async/-/async-2.1.4.tgz"
+    },
+    "babel-polyfill": {
+      "version": "6.20.0",
+      "from": "babel-polyfill@>=6.20.0 <7.0.0",
+      "resolved": "https://registry.npmjs.org/babel-polyfill/-/babel-polyfill-6.20.0.tgz"
+    },
+    "babel-runtime": {
+      "version": "6.20.0",
+      "from": "babel-runtime@>=6.20.0 <7.0.0",
+      "resolved": "https://registry.npmjs.org/babel-runtime/-/babel-runtime-6.20.0.tgz"
     },
     "basic-auth": {
       "version": "1.0.4",
@@ -75,6 +90,11 @@
       "version": "1.0.6",
       "from": "cookie-signature@1.0.6",
       "resolved": "https://registry.npmjs.org/cookie-signature/-/cookie-signature-1.0.6.tgz"
+    },
+    "core-js": {
+      "version": "2.4.1",
+      "from": "core-js@>=2.4.0 <3.0.0",
+      "resolved": "https://registry.npmjs.org/core-js/-/core-js-2.4.1.tgz"
     },
     "core-util-is": {
       "version": "1.0.2",
@@ -332,6 +352,11 @@
       "from": "raw-body@>=2.1.7 <2.2.0",
       "resolved": "https://registry.npmjs.org/raw-body/-/raw-body-2.1.7.tgz"
     },
+    "regenerator-runtime": {
+      "version": "0.10.1",
+      "from": "regenerator-runtime@>=0.10.0 <0.11.0",
+      "resolved": "https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.10.1.tgz"
+    },
     "regexp-clone": {
       "version": "0.0.1",
       "from": "regexp-clone@0.0.1",
@@ -382,6 +407,16 @@
       "from": "string_decoder@>=0.10.0 <0.11.0",
       "resolved": "https://registry.npmjs.org/string_decoder/-/string_decoder-0.10.31.tgz"
     },
+    "systemjs": {
+      "version": "0.19.41",
+      "from": "systemjs@>=0.19.41 <0.20.0",
+      "resolved": "https://registry.npmjs.org/systemjs/-/systemjs-0.19.41.tgz"
+    },
+    "systemjs-plugin-babel": {
+      "version": "0.0.18",
+      "from": "systemjs-plugin-babel@0.0.18",
+      "resolved": "https://registry.npmjs.org/systemjs-plugin-babel/-/systemjs-plugin-babel-0.0.18.tgz"
+    },
     "type-is": {
       "version": "1.6.14",
       "from": "type-is@>=1.6.13 <1.7.0",
@@ -406,6 +441,11 @@
       "version": "1.1.0",
       "from": "vary@>=1.1.0 <1.2.0",
       "resolved": "https://registry.npmjs.org/vary/-/vary-1.1.0.tgz"
+    },
+    "when": {
+      "version": "3.7.7",
+      "from": "when@>=3.7.5 <4.0.0",
+      "resolved": "https://registry.npmjs.org/when/-/when-3.7.7.tgz"
     }
   }
 }

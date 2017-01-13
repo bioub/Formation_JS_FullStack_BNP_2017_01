@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app.module">
 <head>
+    <base href="/">
     <meta charset="utf-8">
     <title>AddressBook</title>
     <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/node_modules/angular/angular-csp.css">
 </head>
 <body>
     <nav class="navbar navbar-default">
@@ -22,23 +24,20 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Lister</a></li>
-                    <li><a href="#">Ajouter</a></li>
+                    <li ui-sref-active="active"><a ui-sref="contact-list">Lister</a></li>
+                    <li ui-sref-active="active"><a ui-sref="contact-add">Ajouter</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
-    <div class="container">
-        <h2>Liste des contacts</h2>
-        <table class="table table-striped">
-            <tr>
-                <td>Jean Dupont</td>
-                <td>
-                    <a href="#" class="btn btn-xs btn-primary">Afficher</a>
-                    <a href="#" class="btn btn-xs btn-danger">Supprimer</a>
-                </td>
-            </tr>
-        </table>
+    <div class="container" ui-view ng-cloak>
+        
     </div>
+    <script src="/node_modules/babel-polyfill/dist/polyfill.js"></script>
+    <script src="/node_modules/systemjs/dist/system.js"></script>
+    <script src="/config.js"></script>
+    <script>
+        System.import('app/app.module');
+    </script>
 </body>
 </html>
